@@ -8,22 +8,18 @@ from django.core.exceptions import ValidationError
 def register_view(request):
     form = Registration()
     if request.method == "POST":
-        # user_n = request.POST['username']
-        # passw = request.POST['passw']
-        # c_passw = request.POST['c_passw']
+        user_n = request.POST['username']
 
-        # data = {'username': user_n, 'password': passw, 'confirm_password': c_passw}
-        # print(user_n, passw, c_passw)
         form = Registration(request.POST)
         if form.is_valid():
             del form.cleaned_data["confirm_password"]
-            # email = form.cleaned_data["email"]
-            # message = "You have registered your account."
+            email = form.cleaned_data["email"]
+            message = f"You have registered your account.\nYour account's username {user_n}!"
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
-            # send_mail(
-            #     'Registration', message, 'settings.EMAIL_HOST_USER', [email], fail_silently=False)
+            send_mail(
+                'Registration', message, 'settings.EMAIL_HOST_USER', [email], fail_silently=False)
             return redirect("login")
 
     return render(request, "register.html", {"form": form})
