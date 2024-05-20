@@ -30,3 +30,16 @@ def form_email_send(request):
             'Contact us', message, 'settings.EMAIL_HOST_USER', [email], fail_silently=False)
         return redirect('home')
     return render(request, 'index.html')
+
+@login_required(login_url="login")
+def order_tickets(request):
+    tickets = Tickets.objects.all()
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        name = request.POST.get('name')
+        message = f"Thank you {name}, for buying our tickets."
+        # code to send email
+        send_mail(
+            'Ticket buy', message, 'settings.EMAIL_HOST_USER', [email], fail_silently=False)
+        return redirect('home')
+    return render(request, 'index.html', {"tickets": tickets})

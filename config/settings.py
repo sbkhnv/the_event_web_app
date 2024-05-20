@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-j!0#*x9%+gvp9m9s9cx7a_&!4s6#rd@bpl9jontl!!klws$owk
 DEBUG = True
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'allayorovbobur22@gmail.com'
-EMAIL_HOST_PASSWORD = 'bcwxoigczhnukpmk'
+EMAIL_HOST_USER = 'subkhanov77@gmail.com'
+EMAIL_HOST_PASSWORD = 'bcyljnkssxkeexlx'
 EMAIL_PORT = 465
 # EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
