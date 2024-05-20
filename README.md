@@ -4,7 +4,7 @@
 
 
 ## Before start pull my files to your lap top.
-    git clone git@github.com:bobur22/The-event.git
+    git clone git@github.com:subkhanov/The-event.git
 ## And then open your terminal and start creating by env file
       python3 install -m venv .env
 ## then activate env file.
